@@ -1,0 +1,21 @@
+{
+  "short_name": "CalPanel",
+  "name": "CalPanel Stealth Panel",
+  "icons": [ {
+      "src": "/assets/globals/img/icons/apple-touch-icon-76x76.png",
+      "sizes": "76x76",
+      "type": "image/png"
+    }, {
+      "src": "/assets/globals/img/icons/apple-touch-icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }, {
+      "src": "/assets/globals/img/icons/apple-touch-icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    }
+  ],
+  "start_url": 	 "/",
+  "display": 	 "standalone",
+  "orientation": "landscape"
+}
