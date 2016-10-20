@@ -105,7 +105,7 @@ Artisan::command('cp:roles:setup/default', function () {
 	$r_slug  = "admin";
 	$r_name  = "Admin";
 	$r_desc  = "Website Administrator/Developer";
-	$r_level = 0;
+	$r_level = 100; // 0 = Lowest, 100 = Highest
 	
 	try {
 		Role::create([
@@ -130,7 +130,24 @@ Artisan::command('cp:roles:setup/default', function () {
 	}
 	
 	// Attach the role "everyone" to every user
+	$everyone = null;
+	try {
+		$everyone = Role::getRoleFromSLug("everyone");
+	} catch (\Exception $ex) {
+		echo "ERROR\t\t failed to get the everyone role by slug:'everyone' please try again\n";
+		return;
+	}
 	
+	foreach (User::all() as $user) {
+		/** @var $user User */
+		
+		try {
+			$user->attachRole($everyone);
+			echo "Attached\t 'Everyone' role to the user email:". $user->getEmail(). "\n";
+		} catch (\Exception $ex) {
+			/* User is already in the role! */
+		}
+	}
 	
 	
 	// Attach all the permissions to 
@@ -145,7 +162,6 @@ Artisan::command('cp:roles:setup/default', function () {
 	/*
 	 mkatperm ($_admin, '', '');
 	*/
-	
 	
 	mkatperm ($_admin, 'admin.access', 					'Display the admin tab on the side of the screen');
 	
