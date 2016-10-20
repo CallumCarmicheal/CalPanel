@@ -7,7 +7,7 @@
 
 @section('content')
     <div class="page-header full-content parallax" style="height: 600px; overflow: hidden">
-        <div class="parallax-bg" style="background: url('{{$user->getBackgroundURL()}}') 50% 50%; background-size: cover; width: 100%; height: 100%; position: absolute; left: 0; top: 0;">
+        <div class="parallax-bg" style="background: url('{{$user->getBackgroundImage()}}') 50% 50%; background-size: cover; width: 100%; height: 100%; position: absolute; left: 0; top: 0;">
         </div>
 
         <div class="profile-info">
@@ -58,7 +58,7 @@
 	    <div class="col-md-12">
 		    <div class="tab-content without-border">
 
-
+				
 			    @include ('areas.admin.users.tabs.timeline')
 			    @include ('areas.admin.users.tabs.about')
 			    @include ('areas.admin.users.tabs.manage')

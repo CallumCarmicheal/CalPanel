@@ -104,7 +104,7 @@ Artisan::command('cp:roles:setup/default', function () {
 	
 	$r_slug  = "admin";
 	$r_name  = "Admin";
-	$r_desc  = "Website Administrator/Developer";
+	$r_desc  = "Website Administrator/Developer || Superuser";
 	$r_level = 100; // 0 = Lowest, 100 = Highest
 	
 	try {
@@ -120,7 +120,7 @@ Artisan::command('cp:roles:setup/default', function () {
 	
 	try {
 		Role::create([
-			'name' 			=> "Everyone",
+			'name' 			=> "User",
 			'slug' 			=> "everyone",
 			'description'	=> "This role is applied to every user!",
 			'level' 		=> 0
@@ -226,6 +226,14 @@ Artisan::command('cp:roles:setup/default', function () {
 	mkatperm ($_admin, 'user.community.post', 			'');
 	mkatperm ($_admin, 'user.community.friend.access',	'');
 	mkatperm ($_admin, '') */
+	
+	// TODO: On production remove this
+	// Save me time when remaking all the roles for testing
+	/** @var User $me */
+	try {
+		$me = User::findEmail("callumcarmicheal@gmail.com");
+		$me->attachRole($_admin);
+	} catch (\Exception $ex) { }
 	
 	echo("\n");
 })->describe('Setup the default roles');

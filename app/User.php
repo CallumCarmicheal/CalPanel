@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\UsersContact;
 use Bican\Roles\Models\Permission;
 use Bican\Roles\Models\Role;
 use Illuminate\Notifications\Notifiable;
@@ -39,8 +40,15 @@ class User extends Authenticatable implements HasRoleAndPermissionContract {
     public function getPassword()           { return $this->password; }
     public function getDateCreated()        { return $this->created_at; }
     public function getDateUpdated()        { return $this->updated_at; }
-    public function getBackgroundURL()      { return $this->image_background; }
-	public function getTitle()				{ return $this->user_title; }
+    public function getBackgroundImage() 	{ return $this->image_background; }
+	
+	/**
+	 * @return UsersContact
+	 */
+	public function Contact() 			{
+		$uc = UsersContact::where('user_id', '=', $this->getID())->get()->first();
+		return $uc;
+	}
 	
 	/**
 	 * Check if a user id exists
@@ -119,6 +127,6 @@ class User extends Authenticatable implements HasRoleAndPermissionContract {
      * @return boolean
      */
     public function hasRoles() {
-        return is_null($this->getRoles()->count() >= 1);
+		return $this->getRoles()->count() >= 1;
     }
 }

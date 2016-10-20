@@ -19,11 +19,9 @@ class CreateUsersTable extends Migration {
             $table->string('email')->unique();
             $table->string('password');
             
-			$table->string ('user_title')->default('user');
-			$table->boolean('user_displaytitle')->default(false);
             $table->string ('image_background')->default('http://www.callumcarmicheal.com/res/img/calpanel.png');
             
-            $table->rememberToken();
+			$table->rememberToken();
             $table->timestamps();
         });
     }

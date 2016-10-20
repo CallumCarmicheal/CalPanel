@@ -1,3 +1,5 @@
+<!-- Public user information that anyone can see? -->
+
 <div id="about" class="tab-pane">
 	<div class="row">
 		<div class="col-md-3">

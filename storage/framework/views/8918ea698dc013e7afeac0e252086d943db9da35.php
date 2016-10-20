@@ -6,7 +6,7 @@
 
 <?php $__env->startSection('content'); ?>
     <div class="page-header full-content parallax" style="height: 600px; overflow: hidden">
-        <div class="parallax-bg" style="background: url('<?php echo e($user->getBackgroundURL()); ?>') 50% 50%; background-size: cover; width: 100%; height: 100%; position: absolute; left: 0; top: 0;">
+        <div class="parallax-bg" style="background: url('<?php echo e($user->getBackgroundImage()); ?>') 50% 50%; background-size: cover; width: 100%; height: 100%; position: absolute; left: 0; top: 0;">
         </div>
 
         <div class="profile-info">
@@ -58,7 +58,7 @@
 	    <div class="col-md-12">
 		    <div class="tab-content without-border">
 
-
+				
 			    <?php echo $__env->make('areas.admin.users.tabs.timeline', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 			    <?php echo $__env->make('areas.admin.users.tabs.about', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 			    <?php echo $__env->make('areas.admin.users.tabs.manage', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

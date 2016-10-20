@@ -17,6 +17,10 @@
 					<p> You have not been assigned a role yet! </p>
 				@endif
 				
+				<p>
+					Skype: {{$user->Contact()->getSkype()}}
+				</p>
+				
 				{{-- 
 					Okay i need to check if a role has a permission attached to it...
 					Oh boy time to dig through docs and if its not there make them :)
@@ -28,15 +32,6 @@
 			</div>
 		</div>
 	</div>
-	
-	@for($x = 0; $x < 33; $x++)
-		<div class="display-animation"> <div class="row image-row">
-				<div class="material-animate material-animated" style="animation-delay: 0.35s;">
-					Time to initiate the hacking!
-				</div>
-			</div>
-		</div>
-	@endfor
 	
 @endsection
 
