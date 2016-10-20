@@ -4,17 +4,32 @@
 		<div class="col-md-3">
 			<ul class="nav nav-tabs borderless vertical">
 				<li class="active"><a href="#manage_edit" data-toggle="tab">Information</a></li>
-				<li class=""><a href="#manage_rperms" data-toggle="tab">Roles and Permissions</a></li>
+				<li class=""><a href="#manage_roles" data-toggle="tab">Roles</a></li>
+				<li class=""><a href="#manage_options" data-toggle="tab">Options</a></li>
 			</ul>
 		</div><!--.col-md-3-->
 		
 		<div class="col-md-9">
 			<div class="tab-content">
-
 				<div class="tab-pane active" id="manage_edit">
-					<div class="legend">Database Information</div>
-					
-					<div class="legend">Contact Information</div>
+					<div class="legend">General</div>
+					<!-- User ID -->
+						<div class="row">
+							<div class="col-md-3">User ID</div><!--.col-md-3-->
+							<div class="col-md-9">{{$user->getID()}}</div><!--.col-md-9-->
+						</div>
+					<!-- Name -->
+						<div class="row">
+							<div class="col-md-3">Name</div><!--.col-md-3-->
+							<div class="col-md-9">{{$user->getName()}}</div><!--.col-md-9-->
+						</div>
+					<!-- Email -->
+						<div class="row">
+							<div class="col-md-3">Email</div><!--.col-md-3-->
+							<div class="col-md-9">{{$user->getEmail()}}</div><!--.col-md-9-->
+						</div>
+
+					<div class="legend">Contact</div>
 					<!-- skype -->
 						<div class="row">
 							<div class="col-md-3">Skype</div><!--.col-md-3-->
@@ -43,44 +58,23 @@
 							<div class="col-md-3">Profile BG Image</div><!--.col-md-3-->
 							<div class="col-md-9"><a href="{{$user->getBackgroundImage()}}">Url</a></div><!--.col-md-9-->
 						</div>
-					
-					<div class="row">
-						<div class="col-md-3">Mobile Phones</div><!--.col-md-3-->
-						<div class="col-md-9">+1-202-555-0173</div><!--.col-md-9-->
-					</div>
-					
+
+
+					<br><br><br>
+					<button type="button" id="manage_info_edit" class="btn btn-default btn-lg btn-block btn-ripple">Manage User Information</button>
 				</div><!--#about_overview.tab-pane-->
 				
-				<div class="tab-pane" id="manage_rperms">
-					<div class="legend">Currently Active</div>
-					<div class="row">
-						<div class="col-md-3">Mobile Phones</div><!--.col-md-3-->
-						<div class="col-md-9">+1-202-555-0173</div><!--.col-md-9-->
-					</div><!--.row-->
-					<div class="row">
-						<div class="col-md-3">Address</div><!--.col-md-3-->
-						<div class="col-md-9">2002 Holcombe Boulevard<br>Houston, TX 77030 </div><!--.col-md-9-->
-					</div><!--.row-->
-					<div class="row">
-						<div class="col-md-3">Website</div><!--.col-md-3-->
-						<div class="col-md-9">http://www.teamfox.co</div><!--.col-md-9-->
-					</div><!--.row-->
-					<div class="row">
-						<div class="col-md-3">Email</div><!--.col-md-3-->
-						<div class="col-md-9">info@teamfox.com</div><!--.col-md-9-->
-					</div><!--.row-->
-					<div class="row">
-						<div class="col-md-3">Facebook</div><!--.col-md-3-->
-						<div class="col-md-9">fb.com/teamfoxco</div><!--.col-md-9-->
-					</div><!--.row-->
-					<div class="row">
-						<div class="col-md-3">Twitter</div><!--.col-md-3-->
-						<div class="col-md-9">twitter.com/teamfox</div><!--.col-md-9-->
-					</div><!--.row-->
+				<div class="tab-pane" id="manage_roles">
+					<div class="legend">Add</div>
+					
+					
+					<div class="legend">Currently In</div>
+					
+				</div>
+				
+				<div class="tab-pane" id="manage_options">
 
-					<div class="legend">Add Role</div>
-					<div class="legend">Add Permission</div>
-				</div><!--#about_overview.tab-pane-->
+				</div>
 
 			</div><!--.tab-content-->
 

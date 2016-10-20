@@ -203,7 +203,16 @@ trait HasRoleAndPermission
     {
         return (!$this->permissions) ? $this->permissions = $this->rolePermissions()->get()->merge($this->userPermissions()->get()) : $this->permissions;
     }
-
+	
+	public function getPermissionsSLugs() {
+		$p = $this->getPermissions();
+		$a = array();
+		
+		foreach ($p as $perm)
+			array_push($a, $perm->slug);
+		return $a;
+	}
+	
     /**
      * Check if the user has a permission or permissions.
      *

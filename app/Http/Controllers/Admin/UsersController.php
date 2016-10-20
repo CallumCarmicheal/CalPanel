@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Helpers\UserPermissions;
 use App\Libraries\Colors;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
