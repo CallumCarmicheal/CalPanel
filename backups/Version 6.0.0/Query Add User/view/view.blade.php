@@ -121,15 +121,21 @@
 						
 						@if ($role->slug != "everyone")
 						<div class="tab-pane" id="manage_users">
-							<div class="legend">Options</div>
-							<button type="button" id="page_users_btn_add" class="btn btn-{{$PAGE['Header']['Color']}} btn-ripple">Add User</button>
-
+							<div class="legend">Add User</div>
+							<div class="inputer inputer-{{$PAGE['Header']['Color']}}">
+								<div class="input-wrapper">
+									<input type="text" id="page_users_add" class="form-control" placeholder="Enter user's email or name...">
+								</div>
+							</div>
+							
+							<button type="button" id="page_add_user" class="btn btn-default btn-md btn-block btn-ripple">Add</button>
+							
 							<div class="legend">Currently in {{$role->name}}</div>
 							<ul class="list-material has-hidden" id="user_body">
 								@foreach ($role->usersInRole() as $user)
-									<li class="has-action-left page-edit-user-tab-rm" style="cursor: default; background-color: #F7F7F7;">
+									<li class="has-action-left page-edit-user-tab" style="cursor: default; background-color: #F7F7F7;">
 										<a class="hidden" style="cursor:pointer;">
-											<i class="glyphicon glyphicon-trash page-user-btn-rm" user_id="{{$user->getID()}}"></i>
+											<i class="glyphicon glyphicon-trash page-user-btn" user_id="{{$user->getID()}}"></i>
 										</a>
 
 										<a href="#" class="visible" style="background-color: #F7F7F7;">

@@ -1,13 +1,13 @@
 <?php $iMS = 'style="color: #3e50b4;"'; ?>
 
-@foreach ($users->all() as $user)
+@foreach ($users as $user)
 
-	<li class="has-action-left code_page-edit-user-tab" style="cursor: default; background-color: #F7F7F7;">
+	<li class="has-action-left code_page-users-tab" style="cursor: default;">
 		<a class="hidden" style="cursor:pointer;">
-			<i class="glyphicon glyphicon-pencil code_page-edit-user-btn" user_id="{{$user->getID()}}"></i>
+			<i class="glyphicon glyphicon-plus code_page-users-add" user_id="{{$user->getID()}}"></i>
 		</a>
 
-		<a href="#" class="visible" style="background-color: #F7F7F7;">
+		<a href="#" class="visible" style="">
 			<div class="list-action-left">
 				<img src="{{ $user->getGravatar() }}" class="face-radius" alt="">
 			</div>

@@ -145,6 +145,7 @@ class UsersController extends Controller {
 
         $user = User::find($id);
 		/* @var User $user*/
+	
 		
 		$Page = [
 			'PID'	  	  => PID::$ADMIN_Users,

@@ -44,19 +44,19 @@
 				<h4 class="modal-title">Add user</h4>
 			</div>
 			<div class="modal-body">
-				<div class="checkboxer checkboxer-{{$PAGE['Header']['Color']}}">
+				<div class="checkboxer checkboxer-<?php echo e($PAGE['Header']['Color']); ?>">
 					<input type="checkbox" checked id="page_users_modal_rts">
 					<label for="page_users_modal_rts">Realtime searching</label>
 				</div>
 
-				<div class="panel-inputs inputer-{{$PAGE['Header']['Color']}}" style="width: 100%;">
+				<div class="panel-inputs inputer-<?php echo e($PAGE['Header']['Color']); ?>" style="width: 100%;">
 					<div class="input-group" style="width: 100%;">
 						<input
 							id="page_users_modal_qry"
 							type="text"
 							class="form-control input-circle-left"
 							placeholder="Query..."
-							value="{{$query or ''}}">
+							value="<?php echo e(isset($query) ? $query : ''); ?>">
 					</div>
 				</div>
 

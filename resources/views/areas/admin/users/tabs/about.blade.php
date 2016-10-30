@@ -1,7 +1,7 @@
 <!-- Public user information that anyone can see? -->
 
 <div id="about" class="tab-pane">
-	<div class="row">
+	{{--<div class="row">
 		<div class="col-md-3">
 			<ul class="nav nav-tabs borderless vertical">
 				<li class="active"><a href="#about_overview" data-toggle="tab">Overview</a></li>
@@ -100,5 +100,5 @@
 			</div><!--.tab-content-->
 
 		</div><!--.col-md-9-->
-	</div><!--.row-->
+	</div><!--.row-->--}}
 </div><!--#about.tab-pane-->

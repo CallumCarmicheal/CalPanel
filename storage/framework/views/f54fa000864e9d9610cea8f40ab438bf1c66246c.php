@@ -1,13 +1,11 @@
-@extends('layouts.dashboard')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 	<div class="row">
 		<div class="col-md-6">
-			<button type="button" id="page_reorder" class="btn btn-{{$PAGE['Header']['Color']}} btn-lg btn-block btn-ripple">Reorder Roles</button>
+			<button type="button" id="page_reorder" class="btn btn-<?php echo e($PAGE['Header']['Color']); ?> btn-lg btn-block btn-ripple">Reorder Roles</button>
 		</div>
 
 		<div class="col-md-6">
-			<button type="button" id="page_addrole" class="btn btn-{{$PAGE['Header']['Color']}} btn-lg btn-block btn-ripple">New Role</button>
+			<button type="button" id="page_addrole" class="btn btn-<?php echo e($PAGE['Header']['Color']); ?> btn-lg btn-block btn-ripple">New Role</button>
 		</div>
 	</div>
 	
@@ -16,7 +14,7 @@
 		<div class="panel-heading">
 			<div class="panel-title">
 				
-				<div class="checkboxer checkboxer-{{$PAGE['Header']['Color']}}">
+				<div class="checkboxer checkboxer-<?php echo e($PAGE['Header']['Color']); ?>">
 					<input type="checkbox" value="" checked id="page_realtime_search">
 					<label for="page_realtime_search">Realtime searching</label>
 				</div>
@@ -24,7 +22,7 @@
 				<small>Press enter to search if realtime is turned off. Press search to refresh with search results (URL BAR)</small>
 			</div>
 
-			<div class="panel-inputs inputer-{{$PAGE['Header']['Color']}}" style="width: 95%;margin-right: 10px">
+			<div class="panel-inputs inputer-<?php echo e($PAGE['Header']['Color']); ?>" style="width: 95%;margin-right: 10px">
 
 				<div class="input-group">
 					<input
@@ -32,13 +30,13 @@
 							type="text"
 							class="form-control input-circle-left"
 							placeholder="Query..."
-							value="{{$query or ''}}">
+							value="<?php echo e(isset($query) ? $query : ''); ?>">
                     
                     <span class="input-group-btn">
                         <button style="padding: 0px 10px 0px 10px;"
                                 type="button"
                                 id="page_query_go"
-                                class="btn btn-flat btn-{{$PAGE['Header']['Color']}} btn-ripple">Search</button>
+                                class="btn btn-flat btn-<?php echo e($PAGE['Header']['Color']); ?> btn-ripple">Search</button>
                     </span>
 
 				</div>
@@ -46,7 +44,7 @@
 		</div>
 		<div class="panel-body without-padding">
 			<ul class="list-material has-hidden" id="user_body">
-				@include ('areas.admin.roles.list')
+				<?php echo $__env->make('areas.admin.roles.list', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 			</ul>
 		</div>
 	</div>
@@ -76,7 +74,7 @@
 					<h4 class="modal-title">Make role</h4>
 				</div>
 				<div class="modal-body">
-					<div class="panel-inputs inputer-{{$PAGE['Header']['Color']}}" style="width: 100%;margin-right: 10px">
+					<div class="panel-inputs inputer-<?php echo e($PAGE['Header']['Color']); ?>" style="width: 100%;margin-right: 10px">
 						<div class="input-group" style="width: 100%;">
 							<input id="page_make_role_slug"
 							       type="text"
@@ -122,14 +120,15 @@
 			</div>
 		</div>
 	</div>
-@endsection
+<?php $__env->stopSection(); ?>
 
 
-@section('footer')
-@endsection
+<?php $__env->startSection('footer'); ?>
+<?php $__env->stopSection(); ?>
 
-@section('scripts')
+<?php $__env->startSection('scripts'); ?>
 
 	<script src="/js/pages/admin/roles/home.js"></script>
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.dashboard', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

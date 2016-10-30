@@ -115,6 +115,36 @@ class RolesController extends Controller {
 		
 		return view('areas.admin.roles.list', ['roles' => $Roles]);
 	}
+
+	public function queryu($slug, $query) {
+		/** @var User[] $AllUsers */
+		if ($query == "*") {
+			$AllUsers = User::all();
+		} else {
+			$AllUsers = User::where('email', 'like', '%'. $query. '%')
+				 		  ->orWhere('name',  'like', '%'. $query. '%')
+						  ->get();
+		}
+		
+		$AllRUsers = Role::getRoleFromSLug($slug);
+		$AllRUsers = $AllRUsers->usersInRole();
+		$AllEmails = array();
+		
+		foreach($AllRUsers as $user) 
+			array_push($AllEmails, $user->getEmail());
+		
+		$usr = [];
+		foreach($AllUsers as $user) {
+			if(in_array($user->getEmail(), $AllEmails)) 
+				continue;
+			array_push($usr, $user);
+		}
+		
+
+        // List users
+        return view('areas.admin.roles.res.users', 
+            ['users' => $usr]);
+    } 
 	
 	public function view($slug) 	{
 		/** @var Role $r */
@@ -237,7 +267,6 @@ class RolesController extends Controller {
 		
 		$response["success"] = true;
 		return $response;
-		
 	}
 	
 	public function AddUser($slug, $id) {

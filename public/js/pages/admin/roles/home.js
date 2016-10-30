@@ -56,7 +56,7 @@ Page = {
 			    			show = true;
 			    		}
 			    	}
-
+			    	
 			    	if (show) {
 			    		// Same query index
 			    		$("#user_body").empty();

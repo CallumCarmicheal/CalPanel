@@ -46,6 +46,7 @@ function() {
 	Route::get 		('/admin/roles', 		   					'RolesController@index');  	// List roles
 	Route::get 		('/admin/roles/{query}', 					'RolesController@query');  	// Lst'n'Qry
 	Route::post 	('/admin/roles/{query}', 					'RolesController@queryp');  // Lst'n'Qry
+	Route::post 	('/admin/roles/u/{role}/{query}',			'RolesController@queryu');	// Qry Users
 	Route::get 		('/admin/role/{slug}', 	   					'RolesController@view');    // View user
 	Route::patch 	('/admin/role/{slug}',   					'RolesController@update'); 	// Upd role
 	Route::delete 	('/admin/role/{slug}',  					'RolesController@delete'); 	// Del role
