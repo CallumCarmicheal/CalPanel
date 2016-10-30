@@ -493,4 +493,31 @@ $(function() {
 	$perms_BTN_DsAll.on('click', function() { setAllPermissions(false); });
 	$perms_BTN_Toggl.on('click', toggleAllPermissions);
 	$perms_AYS_Submt.on('click', onPermsSubmit);
+
+	$('.editbtn').on('click', function() {
+
+		var $this = $(this);
+		var isSave = false;
+		isSave = !($this.html() == "Edit");
+
+		// text-editor
+		// label-display
+		var $master = $($($this.parent()).parent());
+		var $dInput = $($master.find('.text-editor')[0]);
+		var $tInput = $($dInput.find('input')[0]);
+		var $editbn = $($master.find('.editbtn')[0]);
+
+		if(isSave) {
+			// add teh attr (readonly)
+			// upload the new selection to the server
+			$tInput.attr('readonly', true);
+			$editbn.html("Edit");
+		} else {
+			// remove the attr (readonly)
+			$tInput.removeAttr('readonly');
+			$editbn.html("Save");
+		}
+
+		var savetype = $this.attr('savetype');
+	});
 });

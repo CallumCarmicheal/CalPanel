@@ -17,15 +17,15 @@
 						<li class="active"><a href="#manage_info" data-toggle="tab">Information</a></li>
 
 						<?php if($role->slug != "admin"): ?>
-						<li class=""><a href="#manage_perms" data-toggle="tab">Permissions</a></li>
+							<li class=""><a href="#manage_perms" data-toggle="tab">Permissions</a></li>
 						<?php endif; ?>
 						
 						<?php if($role->slug != "everyone"): ?>
-						<li class=""><a href="#manage_users" data-toggle="tab">Users</a></li>
+							<li class=""><a href="#manage_users" data-toggle="tab">Users</a></li>
 						<?php endif; ?>
 						
 						<?php if(($role->slug != "admin") && ($role->slug != "everyone")): ?>
-						<li class=""><a href="#manage_delete" data-toggle="tab">Delete</a></li>
+							<li class=""><a href="#manage_delete" data-toggle="tab">Delete</a></li>
 						<?php endif; ?>
 					</ul>
 				</div><!--.col-md-3-->
@@ -40,44 +40,84 @@
 									<div class="row">
 										<div class="col-md-3 r">Database ID</div>
 										<div class="col-md-9"><?php echo e($role->id); ?></div>
-									</div>
+									</div> 
+									<justalittlemovementdownbecauseitwouldlooknicerdontyouthink-ratherthanauglysquishedbunchofstuffrightquestionmark></justalittlemovementdownbecauseitwouldlooknicerdontyouthink-ratherthanauglysquishedbunchofstuffrightquestionmark>
+								
 								<!-- Slug  -->
 									<div class="row">
 										<div class="col-md-3 r">SLug</div>
 										<div class="col-md-9"><?php echo e($role->slug); ?></div>
 									</div>
+									<justalittlemovementdownbecauseitwouldlooknicerdontyouthink-ratherthanauglysquishedbunchofstuffrightquestionmark></justalittlemovementdownbecauseitwouldlooknicerdontyouthink-ratherthanauglysquishedbunchofstuffrightquestionmark>
+								
 								<!-- Level -->
 									<div class="row">
 										<div class="col-md-3 r">Level</div>
 										<div class="col-md-9"><?php echo e($role->level); ?></div>
 									</div>
+									<justalittlemovementdownbecauseitwouldlooknicerdontyouthink-ratherthanauglysquishedbunchofstuffrightquestionmark></justalittlemovementdownbecauseitwouldlooknicerdontyouthink-ratherthanauglysquishedbunchofstuffrightquestionmark>
+								
 
 								<!-- Date Created -->
 									<div class="row">
 										<div class="col-md-3 r">Date Created</div>
 										<div class="col-md-9"><?php echo e($role->created_at); ?></div>
 									</div>
+									<justalittlemovementdownbecauseitwouldlooknicerdontyouthink-ratherthanauglysquishedbunchofstuffrightquestionmark></justalittlemovementdownbecauseitwouldlooknicerdontyouthink-ratherthanauglysquishedbunchofstuffrightquestionmark>
+								
 		
 								<!-- Date Updated -->
 									<div class="row">
 										<div class="col-md-3 r">Date Last Edited</div>
 										<div class="col-md-9"><?php echo e($role->updated_at); ?></div>
 									</div>
+									<justalittlemovementdownbecauseitwouldlooknicerdontyouthink-ratherthanauglysquishedbunchofstuffrightquestionmark></justalittlemovementdownbecauseitwouldlooknicerdontyouthink-ratherthanauglysquishedbunchofstuffrightquestionmark>
+								
 							
-							<!-- Editable -->
+							<!-- Editable --> <!-- 
+								Save Type IDS:
+									0 - Display Name
+									1 - Description -->
+
 							<div class="legend">Editable</div>
 								<!-- Display Name -->
 									<div class="row">
 										<div class="col-md-3 r">Display Name</div>
-										<div class="col-md-8"><?php echo e($role->name); ?></div>
-										<div class="col-md-1"><a class="btn btn-<?php echo e($PAGE['Header']['Color']); ?> btn-ripple"><i class="ion-android-create"></i></a></div>
+										<div class="col-md-8">
+											<div class="text-editor panel-inputs inputer-<?php echo e($PAGE['Header']['Color']); ?>" style="width: 100%;">
+												<div class="input-group" style="width: 100%;">
+													<input
+														type="text"
+														class="form-control input-circle-left"
+														placeholder="Display Name..."
+														readonly
+														value="<?php echo e(isset($role->name) ? $role->name : ''); ?>">
+												</div>
+											</div>
+										</div>
+										<div class="col-md-1"><a class="editbtn" savetype="0" style="color: <?php echo e($PAGE['Header']['Color']); ?>">Edit</a></div>
 									</div>
+									<justalittlemovementdownbecauseitwouldlooknicerdontyouthink-ratherthanauglysquishedbunchofstuffrightquestionmark></justalittlemovementdownbecauseitwouldlooknicerdontyouthink-ratherthanauglysquishedbunchofstuffrightquestionmark>
+								
 								<!-- Description  -->
 									<div class="row">
 										<div class="col-md-3 r">Description</div>
-										<div class="col-md-8"><?php echo e($role->description); ?></div>
-										<div class="col-md-1"><a class="btn btn-<?php echo e($PAGE['Header']['Color']); ?> btn-ripple"><i class="ion-android-create"></i></a></div>
+										<div class="col-md-8">
+											<div class="text-editor panel-inputs inputer-<?php echo e($PAGE['Header']['Color']); ?>" style="width: 100%;">
+												<div class="input-group" style="width: 100%;">
+													<input
+														type="text"
+														class="form-control input-circle-left"
+														placeholder="Description..."
+														readonly
+														value="<?php echo e(isset($role->description) ? $role->description : ''); ?>">
+												</div>
+											</div>
+										</div>
+										<div class="col-md-1"><a class="editbtn" savetype="1" style="color: <?php echo e($PAGE['Header']['Color']); ?>">Edit</a></div>
 									</div>
+									<justalittlemovementdownbecauseitwouldlooknicerdontyouthink-ratherthanauglysquishedbunchofstuffrightquestionmark></justalittlemovementdownbecauseitwouldlooknicerdontyouthink-ratherthanauglysquishedbunchofstuffrightquestionmark>
+								
 						</div>
 
 						<?php if($role->slug != "admin"): ?>
@@ -192,5 +232,30 @@
 		}
 	</style>
 	
+	<style>
+
+	justalittlemovementdownbecauseitwouldlooknicerdontyouthink-ratherthanauglysquishedbunchofstuffrightquestionmark {
+		display: block;
+
+		width: 		 1px;
+		height: 	 1px;
+
+		padding: 	 0px;
+		margin: 	 0px;
+
+		padding-top: 10px;
+	}
+
+	.editbtn {
+		cursor: pointer;
+	}
+
+	input[type="text"][readonly] {
+		background-color: #F7F7F7;
+		border-bottom: 0px;
+	}
+
+	</style>
+
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.dashboard', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
